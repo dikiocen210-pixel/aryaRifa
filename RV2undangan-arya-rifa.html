@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan • Arya & Rifa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;500&display=swap');
+
+        :root { --gold: #d4af77; }
+        body { font-family: 'Inter', sans-serif; }
+        .heading-font { font-family: 'Playfair Display', serif; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+        .hero-video {
+            position: fixed; inset: 0; width: 100%; height: 100vh;
+            object-fit: cover; z-index: -1; filter: brightness(0.65);
+            contain: layout style;
+        }
+        .overlay { background: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.75)); }
+
+        .luxury-name { display: flex; flex-direction: column; align-items: center; line-height: .85; }
+        .luxury-name span.name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 7.4rem; font-weight: 400;
+            background: linear-gradient(90deg, #f5e8c7, #d4af77, #f5e8c7);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 12px 35px rgba(212,175,119,.45);
+            letter-spacing: -3px;
+        }
+        .luxury-name .amp {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem; color: var(--gold);
+            margin: 10px 0 6px 0; text-shadow: 0 5px 15px rgba(212,175,119,.5);
+        }
+        @media (max-width: 768px) {
+            .luxury-name span.name { font-size: 5.6rem; }
+            .luxury-name .amp { font-size: 3.6rem; }
+        }
+
+        .section { scroll-margin-top: 95px; }
+        .gallery-img { transition: transform .4s ease; }
+        .gallery-img:hover { transform: scale(1.08); }
+        .music-btn { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
+
+        .countdown-box { background: rgba(212,175,119,.15); backdrop-filter: blur(12px); border: 1px solid rgba(212,175,119,.3); animation: glowPulse 4s ease infinite; }
+        @keyframes glowPulse { 0%,100% { box-shadow: 0 0 20px rgba(212,175,119,.3); } 50% { box-shadow: 0 0 35px rgba(212,175,119,.5); } }
+
+        .countdown-number { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--gold); }
+        @keyframes countPop { 0%{transform:scale(.7) rotate(-5deg);opacity:0} 35%{transform:scale(1.15) rotate(4deg)} 65%{transform:scale(.92) rotate(-2deg)} 100%{transform:scale(1) rotate(0);opacity:1} }
+        .animate-count { animation: countPop 400ms cubic-bezier(.68,-.55,.27,1.55) forwards; }
+
+        .map-container { border-radius: 1.5rem; overflow: hidden; border: 1px solid rgba(212,175,119,.3); box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+    </style>
+</head>
+<body class="bg-[#0f0a05] text-white overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-[9999] bg-[#0f0a05]/95 backdrop-blur-lg border-b border-[#d4af77]/20">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fas fa-heart text-[#d4af77] text-2xl"></i>
+                <h1 class="heading-font text-3xl tracking-[-1px]">Arya & Rifa</h1>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#home" class="hover:text-[#d4af77]">BERANDA</a>
+                <a href="#couple" class="hover:text-[#d4af77]">KAMI</a>
+                <a href="#gallery" class="hover:text-[#d4af77]">GALERI</a>
+                <a href="#rsvp" class="hover:text-[#d4af77]">KONFIRMASI</a>
+                <a href="#info" class="hover:text-[#d4af77]">INFO ACARA</a>
+            </div>
+            <div onclick="toggleMusic()" id="musicControl" class="flex items-center gap-2 bg-[#1a140f] hover:bg-[#d4af77] hover:text-[#0f0a05] text-[#d4af77] px-5 py-3 rounded-3xl cursor-pointer music-btn">
+                <i id="musicIcon" class="fas fa-music"></i>
+                <span id="musicText" class="text-xs font-medium tracking-widest">MUSIK DIMAINKAN</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center">
+        <video class="hero-video" autoplay loop muted playsinline preload="none" poster="https://picsum.photos/id/1015/1920/1080">
+            <source src="video background.mp4" type="video/mp4">
+        </video>
+        <div class="overlay absolute inset-0"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center px-6 pt-20">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-8 py-3 rounded-3xl text-sm mb-4 tracking-[4px]">
+                <i class="fas fa-ring text-[#d4af77]"></i>
+                THE WEDDING
+            </div>
+
+            <div class="islamic-text mb-8 max-w-md mx-auto">
+                Bismillahirrahmanirrahim<br>
+                Dengan rahmat Allah Yang Maha Pengasih lagi Maha Penyayang<br>
+                Semoga pernikahan ini menjadi keluarga yang sakinah, mawaddah, warahmah
+            </div>
+
+            <div class="luxury-name mb-6">
+                <span class="name">Arya</span>
+                <span class="amp">&amp;</span>
+                <span class="name">Rifa</span>
+            </div>
+
+            <div class="text-[#f5e8c7] text-lg mb-8 leading-tight">
+                Arya Putra Wijaya<br>
+                <span class="text-sm tracking-widest">Putra dari Bapak H. Ahmad Wijaya & Ibu Hj. Siti Rahayu</span>
+            </div>
+            <div class="text-[#f5e8c7] text-lg leading-tight">
+                Rifa Aulia Sari<br>
+                <span class="text-sm tracking-widest">Putri dari Bapak H. Budi Santoso & Ibu Hj. Dewi Lestari</span>
+            </div>
+
+            <p class="text-3xl text-[#f5e8c7] mt-10 mb-8 tracking-widest">12 April 2026 • Jakarta</p>
+
+            <div class="countdown-box mx-auto max-w-2xl rounded-3xl p-8 mb-12">
+                <div class="text-[#d4af77] text-sm tracking-[3px] mb-6 font-medium">HARI H TINGGAL</div>
+                <div id="countdown" class="grid grid-cols-4 gap-6 text-center items-end"></div>
+            </div>
+            
+            <a href="#rsvp" class="inline-flex items-center gap-3 bg-[#d4af77] text-[#0f0a05] hover:bg-white px-10 py-6 rounded-3xl text-xl font-semibold transition-all active:scale-95">
+                <i class="fas fa-check-circle"></i>
+                KONFIRMASI KEHADIRAN
+            </a>
+        </div>
+    </section>
+
+    <!-- COUPLE -->
+    <section id="couple" class="section py-24 bg-[#0f0a05]">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="luxury-heading text-center mb-8">Cerita Kami</h2>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <p class="text-xl leading-relaxed text-[#e8d9c0]">
+                        Dari pertemuan tak sengaja di sebuah kafe kecil hingga keputusan untuk menjalani hidup bersama selamanya. 
+                        Arya & Rifa, dua jiwa yang saling melengkapi, siap memulai babak baru.
+                    </p>
+                    <div class="mt-12 flex gap-8">
+                        <div><div class="text-[#d4af77] text-sm">Arya Putra Wijaya</div><div class="text-3xl font-light">30 Tahun</div></div>
+                        <div><div class="text-[#d4af77] text-sm">Rifa Aulia Sari</div><div class="text-3xl font-light">27 Tahun</div></div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="cerita kami.jpg" loading="lazy" decoding="async" alt="Arya & Rifa" class="rounded-3xl shadow-2xl border-8 border-[#d4af77]/30">
+                    <div class="absolute -bottom-6 -right-6 bg-[#0f0a05] text-[#d4af77] px-6 py-4 rounded-3xl text-sm font-medium flex items-center gap-2 shadow-xl">
+                        <i class="fas fa-heart"></i> 12.04.2026
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI -->
+    <section id="gallery" class="section py-24 bg-[#1a140f]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="luxury-heading text-center mb-3">Momen Indah Kami</h2>
+                <p class="text-[#d4af77]">Dari awal hingga selamanya</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="galleryGrid"></div>
+        </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="section py-24 bg-[#0f0a05]">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="bg-[#1a140f] border border-[#d4af77]/30 rounded-3xl p-10 rsvp-card">
+                <h2 class="luxury-heading text-center mb-8">Apakah kamu hadir?</h2>
+                <form id="rsvpForm" onsubmit="handleRSVP(event)">
+                    <div class="mb-8">
+                        <label class="block text-sm text-[#d4af77] mb-2">Nama Lengkap</label>
+                        <input type="text" id="guestName" required class="w-full bg-white/10 border border-[#d4af77]/30 focus:border-[#d4af77] rounded-3xl px-8 py-6 outline-none text-lg">
+                    </div>
+                    <div class="mb-8">
+                        <label class="block text-sm text-[#d4af77] mb-4">Kehadiran</label>
+                        <div class="flex gap-4">
+                            <label class="flex-1 cursor-pointer">
+                                <input type="radio" name="attendance" value="Hadir" checked class="peer hidden">
+                                <div class="peer-checked:bg-[#d4af77] peer-checked:text-[#0f0a05] border border-[#d4af77]/30 hover:border-[#d4af77] text-center py-6 rounded-3xl transition-all">Hadir</div>
+                            </label>
+                            <label class="flex-1 cursor-pointer">
+                                <input type="radio" name="attendance" value="Tidak Hadir" class="peer hidden">
+                                <div class="peer-checked:bg-[#d4af77] peer-checked:text-[#0f0a05] border border-[#d4af77]/30 hover:border-[#d4af77] text-center py-6 rounded-3xl transition-all">Tidak Hadir</div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <label class="block text-sm text-[#d4af77] mb-2">Ucapan untuk Arya & Rifa</label>
+                        <textarea id="guestMessage" rows="4" class="w-full bg-white/10 border border-[#d4af77]/30 focus:border-[#d4af77] rounded-3xl px-8 py-6 outline-none resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-7 bg-[#d4af77] text-[#0f0a05] text-2xl font-semibold rounded-3xl hover:shadow-xl hover:shadow-[#d4af77]/50 transition-all">
+                        KIRIM KONFIRMASI
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO ACARA + GOOGLE MAPS -->
+    <section id="info" class="section py-24 bg-[#1a140f]">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="luxury-heading mb-8">Detail Acara</h2>
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <i class="fas fa-calendar text-4xl text-[#d4af77]"></i>
+                        <div>
+                            <div class="text-[#d4af77]">Sabtu, 12 April 2026</div>
+                            <div class="text-3xl">Pukul 10.00 WIB – selesai</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <i class="fas fa-map-marker-alt text-4xl text-[#d4af77]"></i>
+                        <div>
+                            <div class="text-[#d4af77]">The Dharmawangsa Grand Ballroom</div>
+                            <div class="text-xl">Jl. Brawijaya Raya No. 26, Kebayoran Baru, Jakarta Selatan</div>
+                            <a href="https://maps.google.com/maps?q=The+Dharmawangsa+Grand+Ballroom" target="_blank" class="text-[#d4af77] text-sm underline mt-2 inline-block">Buka di Google Maps →</a>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <i class="fas fa-gift text-4xl text-[#d4af77]"></i>
+                        <div>
+                            <div class="text-[#d4af77]">Amplop atau hadiah digital</div>
+                            <div class="text-sm text-[#e8d9c0]">BCA 1234567890 a.n. Arya Putra Wijaya</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <h4 class="text-[#d4af77] mb-4 text-xl font-medium">Lokasi di Peta</h4>
+                    <div class="map-container">
+                        <iframe width="100%" height="420" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.8!2d106.8123!3d-6.2345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5a5b5a5b5a5%3A0xabcdef1234567890!2sThe+Dharmawangsa+Grand+Ballroom!5e0!3m2!1sid!2sid!4v1700000000000" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center md:text-left">
+                <h3 class="text-2xl mb-6">Doa & Harapan</h3>
+                <p class="italic text-[#e8d9c0] text-lg leading-relaxed">
+                    “Semoga cinta kami menjadi saksi kebesaran Tuhan dan menjadi berkah bagi semua yang hadir.”
+                </p>
+                <div class="mt-12 text-sm opacity-70">— Arya & Rifa</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-[#d4af77] text-2xl heading-font">Terima kasih telah menjadi bagian dari hari spesial kami</p>
+            <p class="mt-4 text-sm">© 2026 Arya & Rifa • Dibuat dengan penuh cinta</p>
+        </div>
+    </footer>
+
+    <!-- MODAL GALERI -->
+    <div id="modal" onclick="if(event.target===this)closeModal()" class="hidden fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center">
+        <div class="max-w-4xl w-full px-4 relative">
+            <img id="modalImage" src="" class="w-full rounded-3xl mx-auto shadow-2xl" loading="lazy">
+            <button onclick="closeModal()" class="absolute top-8 right-8 text-white text-4xl hover:text-[#d4af77]">✕</button>
+        </div>
+    </div>
+
+    <!-- BACKGROUND MUSIC -->
+    <audio id="bgMusic" loop>
+        <source src="Vocaroo 19gaplYOJnI1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let elements = {};
+        let isPlaying = true;
+        let prevValues = {days:-1, hours:-1, minutes:-1, seconds:-1};
+
+        const photos = ["cerita kami.jpg","foto 1.jpg","foto 2.jpg","foto 3.jpg","foto 4.jpg","foto 5 (2).jpg","cerita kami.jpg","foto 1.jpg"];
+
+        function cacheElements() {
+            elements = {
+                galleryGrid: document.getElementById('galleryGrid'),
+                modal: document.getElementById('modal'),
+                modalImage: document.getElementById('modalImage'),
+                musicIcon: document.getElementById('musicIcon'),
+                musicText: document.getElementById('musicText'),
+                bgMusic: document.getElementById('bgMusic'),
+                countdown: document.getElementById('countdown')
+            };
+        }
+
+        function renderGallery() {
+            elements.galleryGrid.innerHTML = photos.map((src,i) => `
+                <div onclick="openGallery(${i})" class="aspect-square overflow-hidden rounded-3xl cursor-pointer">
+                    <img src="${src}" loading="lazy" decoding="async" class="gallery-img w-full h-full object-cover">
+                </div>`).join('');
+        }
+
+        function openGallery(i) {
+            elements.modalImage.src = photos[i];
+            elements.modal.classList.remove('hidden');
+            elements.modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            elements.modal.classList.add('hidden');
+            elements.modal.classList.remove('flex');
+        }
+
+        function toggleMusic() {
+            if (isPlaying) {
+                elements.bgMusic.pause();
+                elements.musicIcon.classList.replace('fa-music','fa-pause');
+                elements.musicText.textContent = 'MUSIK DIHENTIKAN';
+            } else {
+                elements.bgMusic.play();
+                elements.musicIcon.classList.replace('fa-pause','fa-music');
+                elements.musicText.textContent = 'MUSIK DIMAINKAN';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function startCountdown() {
+            const target = new Date('2026-04-12T10:00:00+07:00').getTime();
+            function update() {
+                const distance = target - Date.now();
+                if (distance < 0) {
+                    elements.countdown.innerHTML = `<div class="col-span-4 text-4xl text-[#d4af77] font-light animate-pulse">🎉 Hari H Telah Tiba!</div>`;
+                    return;
+                }
+                const d = Math.floor(distance / 86400000);
+                const h = Math.floor((distance % 86400000) / 3600000);
+                const m = Math.floor((distance % 3600000) / 60000);
+                const s = Math.floor((distance % 60000) / 1000);
+
+                if (d !== prevValues.days) updateEl('days', d);
+                if (h !== prevValues.hours) updateEl('hours', h);
+                if (m !== prevValues.minutes) updateEl('minutes', m);
+                if (s !== prevValues.seconds) updateEl('seconds', s);
+
+                prevValues = {days:d, hours:h, minutes:m, seconds:s};
+                requestAnimationFrame(update);
+            }
+            function updateEl(id, val) {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.textContent = String(val).padStart(2,'0');
+                    el.classList.remove('animate-count');
+                    void el.offsetWidth;
+                    el.classList.add('animate-count');
+                }
+            }
+            update();
+        }
+
+        function handleRSVP(e) {
+            e.preventDefault();
+            const name = document.getElementById('guestName').value || 'Tamu';
+            const att = document.querySelector('input[name="attendance"]:checked').value;
+            const msg = document.getElementById('guestMessage').value || "Tanpa ucapan";
+            alert(`🎉 Terima kasih, ${name}!\nKehadiran: ${att}\nUcapan: "${msg}"\n\nKami sangat menantikan kehadiranmu! ❤️`);
+            e.target.reset();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            cacheElements();
+            renderGallery();
+            startCountdown();
+            const audio = elements.bgMusic;
+            audio.volume = 0.4;
+            audio.play().catch(() => {});
+            console.log('%c✅ Full Code Sudah Dioptimasi Maksimal!', 'color:#d4af77; font-size:18px');
+        });
+    </script>
+</body>
+</html>
